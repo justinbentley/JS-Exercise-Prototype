@@ -43,7 +43,7 @@ function Airplane(name) {
     this.name = name;
     this.age = age;
     this.eat = eat;
-  }
+  }g
   Person.prototype.eat = function (){
     this.eat = 
   }
