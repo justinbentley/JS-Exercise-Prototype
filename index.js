@@ -39,8 +39,13 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.eat = eat;
+  }
+  Person.prototype.eat = function (){
+    this.eat = 
   }
  
  
@@ -75,7 +80,7 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
+ function Baby(person) {
    
   }
  
