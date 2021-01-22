@@ -42,13 +42,23 @@ function Airplane(name) {
  function Person(name, age) {
     this.name = name;
     this.age = age;
-    this.eat = eat;
-  }g
-  Person.prototype.eat = function (){
-    this.eat = 
+    this.stomach = [];
+  };
+  Person.prototype.eat = function (food){
+    if (this.stomach.length<10){
+      this.stomach.push(food);
+    }
+  };
+  Person.prototype.poop = function (){
+      this.stomach=[]
   }
- 
- 
+  Person.prototype.toString = function (){
+    return `${this.name}, ${this.age}`
+  };
+  // const personOne = new Person("Jack", 25)
+  // const personTwo = new Person("Jackson", 26)
+  // const personThree = new Person("Chance", 24)
+
 
   
   
@@ -68,9 +78,20 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  Car.prototype.fill = function (gallons){
+    this.tank=this.tank+gallons;
+  };
+  
+  const fullCar = new Car("s2000",12);
+  fullCar.fill(7);
+  console.log(fullCar.tank);
+  console.log(fullCar)
   
   
   /*
@@ -80,18 +101,31 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby(person) {
-   
+ function Baby(name, age, favoriteToy) {
+    this.name = name;
+    this.age = age;
+    this.favoriteToy = favoriteToy;
   }
+  Baby.prototype = Object.create(Person.prototype);
+
+  Baby.prototype.play = function (){
+    return `Playing with ${this.favoriteToy}`
+  };
+
+  const babyBoy = new Baby ("Tanner",2,"rattle");
+
+  console.log(babyBoy);
+  console.log(babyBoy.play());
+
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. the biggest 'this' keyword is the global/window which is the code for the actual dislay window
+    2. implicit binding, binds items to the left of the .this
+    3. explicit binding, is used with .call or .apply
+    4. New Binding, binds constructors to functions
   */
   
   
